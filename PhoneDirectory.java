@@ -1,14 +1,46 @@
 public class PhoneDirectory 
 {
-	private List<DirectoryEntry> theDirectory = new ArrayList<>();
+	private List<DirectoryEntry> theDirectory; = new ArrayList<>();
+	
+	//Constructor Methods
+	public PhoneDirectory(List<DirectoryEntry> dir)
+	{
+		theDirectory = dir;
+	}
 
+	
+	public PhoneDirectory()
+	{
+		theDirectory = new ArrayList<>();
+	}
+
+	//Accessor Method
+	public List<DirectoryEntry> getDirectory()
+	{
+		return theDirectory;
+	}
+
+	//Mutator Methods
 	public String addOrChangeEntry(String name, String number)
 	{
 
 		// add an entry to directory or change an existing entry; return the old number or 
 		// null if it is a
 		// new entry
-		
+		Iterator<DirectoryEntry> iter = theDirectory.iterator();
+		while(iter.hasNext())
+		{
+		 	DirectoryEntry next = iter.next();
+			if(next.getName().equalsIgnoreCase(name))
+				{
+					int old = next.getNumber();
+					next.setNumber(number);
+					return old;
+				}
+		}
+
+		theDirectory.add(new DirectoryEntry(name, number);
+		return null;
 	}
 
 	public DirectoryEntry searchEntry(String name)
