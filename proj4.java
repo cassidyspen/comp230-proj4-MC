@@ -9,9 +9,10 @@ public class proj4
 	{
 		//declare varaibles
 		Scanner sc = new Scanner(System.in);
-		Boolean rerun = false; //SHOULD THIS START AS TRUE?
+		Boolean rerun = false; //SHOULD THIS START AS TRUE?  no a do while automatically goes once
 		PhoneDirectory pd = new PhoneDirectory();
 		PrintWriter writeFile;
+		String name = "";
 
 		//do while for rerun
 		do
@@ -34,6 +35,7 @@ public class proj4
 			System.out.println("\nError: Please enter a number 1-7");
 			input = sc.nextInt();
 		}
+		sc.nextLine();
 
 		//switch statement for selection
 		switch(input)
@@ -41,7 +43,6 @@ public class proj4
 			case 1:
 				//load previously saved directory from file
 				System.out.println("\nPlease enter the file name:");
-				sc.nextLine();
 				String filename = sc.nextLine();
 				BufferedReader br = new BufferedReader(new FileReader(filename));
 				
@@ -55,12 +56,49 @@ public class proj4
 				}
 				break;
 			case 2:
+				//add or change entry
+				//get user input
+				System.out.print("\nEnter the name for the entry: ");
+				name = sc.nextLine();
+				System.out.print("\nEnter the number for the entry: ");
+				String number = sc.nextLine();
+
+				//use method from Phone Directory
+				pd.addOrChangeEntry(name,number);
 				break;
 			case 3:
+				//remove an entry
+				//user input
+				System.out.print("\nEnter the name to be removed: ");
+				name = sc.nextLine();
+
+				//remove with method
+				DirectoryEntry entry = pd.removeEntry(name);
+
+				//display
+				if(entry==null)
+					System.out.println("\nEntry not found");
+				else
+					System.out.println("\n"+entry+"\thas been removed");
 				break;
 			case 4:
+				//search for an entry
+				System.out.print("\nEnter a name to search: ");
+				name = sc.nextLine();
+
+				//find entry
+				DirectoryEntry entry2 = pd.searchEntry(name);
+				
+				//display message
+				if(entry2==null)
+					System.out.println("\nEntry not found");
+				else
+					System.out.println("\nEntry found:\n\t"+entry2.toString());
 				break;
 			case 5:
+				//display all entries
+				System.out.println("\nCurrent Phone Directory:\n");
+				pd.displayAllEntries();
 				break;
 			case 6:
 				try
@@ -82,17 +120,10 @@ public class proj4
 					else
 						writeFile = new PrintWriter(new FileOutputStream(filename, true));
 					
-					//TODO Fix line 86 because weird error
-					Iterator<DirectoryEntry> iter = pd.iterator(); 
-					while(iter.hasNext())
-					{
-						//get name
-						//get number
-						//write name and number to file
-						DirectoryEntry next = iter.next();
-						writeFile.println(next.getName() + "," + next.getNumber());
-					}
+					//use toString method to get entries
+					writeFile.print(pd.toString());
 					writeFile.close();
+
 				}//end try
 				catch (IOException e)
 				{
@@ -101,7 +132,7 @@ public class proj4
 				}//end catch
 			default:
 				//quit
-				rerun = false;
+				System.exit(0);
 		}
 
 	

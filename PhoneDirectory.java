@@ -81,4 +81,16 @@ public class PhoneDirectory
       while(iter.hasNext())
           System.out.println(iter.next().toString());
   }
+	
+  public String toString()
+  {
+	String entries = "";
+	Iterator<DirectoryEntry> iter = theDirectory.iterator();
+	while(iter.hasNext())
+		entries += iter.next().toString() + "\n";
+	return entries;
+
+  }
+
+
 }

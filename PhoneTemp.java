@@ -10,7 +10,7 @@ public DirectoryEntry searchEntry(String name)
     while(iter.hasNext())
     {
       DirectoryEntry next = iter.next();
-      if(next.getName.equalsIgnoreCase(name))
+      if(next.getName().equalsIgnoreCase(name))
         return iter;
     }	
 	return null;		 
