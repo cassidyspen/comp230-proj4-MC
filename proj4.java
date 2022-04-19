@@ -9,20 +9,28 @@ public class proj4
 	{
 		//declare varaibles
 		Scanner sc = new Scanner(System.in);
-		Boolean rerun = false;
+		Boolean rerun = false; //SHOULD THIS START AS TRUE?
 		PhoneDirectory pd;
 	
 		//do while for rerun
 		do
 		{
 		//display menu
-
+		System.out.println("Welcome to Cassidy and Madeleine's *Directory Program*\n"); 
+		System.out.println("Please enter a number 1-7 \n");
+		System.out.println("1. Load a previously saved phone directory from file");
+		System.out.println("2. Add or change an entry");
+		System.out.println("3. Remove an entry");
+		System.out.println("4. Search for an entry");
+		System.out.println("5. Display all entries");
+		System.out.println("6. Save the current phone directory to a file");
+		System.out.println("7. Quit the program");
 
 		//user input for menu selection
 		int input = sc.nextInt();
-		while(input<1 || input>6)
+		while(input<1 || input>7)
 		{
-			System.out.println("\nError: Please enter a number 1-6");
+			System.out.println("\nError: Please enter a number 1-7");
 			input = sc.nextInt();
 		}
 
@@ -54,9 +62,37 @@ public class proj4
 			case 5:
 				break;
 			case 6:
-				break;
+				try
+				{
+					//get user input
+					System.out.println("\nPlease enter the file name:");
+					String filename = sc.nextLine();
+					System.out.println("\nWould you like to replace (r) or append (a)?");
+					String choice = sc.nextLine();
+					
+					while(!choice.equalsIgnoreCase("r") && !choice.equalsIgnoreCase("w"))
+					{
+						System.out.println("\nPlease enter "r" or "a");
+						sc.nextLine();
+					}
+
+					if(choice.equalsIgnoreCase("r")
+						ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
+					else
+						ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename), true);
+
+					//WRITE TO FILE & ITERATE THROUGH THINGS
+					
+					out.close();
+				}//end try
+				catch (IOException e)
+				{
+					System.out.println(e.getMessage());
+					System.exit(1);
+				}//end catch
 			default:
 				//quit
+				rerun = false;
 		}
 
 	
