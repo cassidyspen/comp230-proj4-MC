@@ -41,6 +41,7 @@ public class proj4
 		switch(input)
 		{
 			case 1:
+			try{
 				//load previously saved directory from file
 				System.out.println("\nPlease enter the file name:");
 				String filename = sc.nextLine();
@@ -54,6 +55,13 @@ public class proj4
 					String[] lineList = line.split(",");
 					pd.addOrChangeEntry(lineList[0],lineList[1]);
 				}
+				System.out.println("File added");
+			}
+			catch(IOException e)
+			{
+				System.out.println(e.getMessage());
+				System.exit(1);
+			}
 				break;
 			case 2:
 				//add or change entry
@@ -105,7 +113,7 @@ public class proj4
 				{
 					//get user input
 					System.out.println("\nPlease enter the file name:");
-					filename = sc.nextLine();
+					String filename = sc.nextLine();
 					System.out.println("\nWould you like to replace (r) or append (a)?");
 					String choice = sc.nextLine();
 					
@@ -130,6 +138,7 @@ public class proj4
 					System.out.println(e.getMessage());
 					System.exit(1);
 				}//end catch
+				break;
 			default:
 				//quit
 				System.exit(0);
@@ -137,6 +146,18 @@ public class proj4
 
 	
 		//user input for rerun
+		System.out.println("\nWould you like to run again?(y for yes, n for no)");
+		String choice = sc.nextLine();
+
+		while(!choice.equalsIgnoreCase("y") && !choice.equalsIgnoreCase("n"))
+		{
+			System.out.println("\nError: Please enter \"y\" or \"n\"");
+			choice = sc.nextLine();
+		}
+		if(choice.equalsIgnoreCase("y"))
+			rerun = true;
+		else
+			rerun = false;
 		}
 		while(rerun);
 	}
