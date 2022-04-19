@@ -2,7 +2,7 @@
 
 public class DirectoryEntry
 {
-	//declare feilds
+	//declare fields
 	String name;
 	String number;
 

@@ -10,8 +10,9 @@ public class proj4
 		//declare varaibles
 		Scanner sc = new Scanner(System.in);
 		Boolean rerun = false; //SHOULD THIS START AS TRUE?
-		PhoneDirectory pd;
-	
+		PhoneDirectory pd = new PhoneDirectory();
+		PrintWriter writeFile;
+
 		//do while for rerun
 		do
 		{
@@ -45,7 +46,7 @@ public class proj4
 				BufferedReader br = new BufferedReader(new FileReader(filename));
 				
 				//read in lines
-				pd = new PhoneDirectory();
+				//COMMENTED OUT pd = new PhoneDirectory();
 				String line = br.readLine();
 				while(line != null)
 				{
@@ -66,24 +67,32 @@ public class proj4
 				{
 					//get user input
 					System.out.println("\nPlease enter the file name:");
-					String filename = sc.nextLine();
+					filename = sc.nextLine();
 					System.out.println("\nWould you like to replace (r) or append (a)?");
 					String choice = sc.nextLine();
 					
 					while(!choice.equalsIgnoreCase("r") && !choice.equalsIgnoreCase("w"))
 					{
-						System.out.println("\nPlease enter "r" or "a");
+						System.out.println("\nPlease enter r or a");
 						sc.nextLine();
 					}
 
-					if(choice.equalsIgnoreCase("r")
-						ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
+					if(choice.equalsIgnoreCase("r"))
+						writeFile = new PrintWriter(new FileOutputStream(filename));
 					else
-						ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename), true);
-
-					//WRITE TO FILE & ITERATE THROUGH THINGS
+						writeFile = new PrintWriter(new FileOutputStream(filename, true));
 					
-					out.close();
+					//TODO Fix line 86 because weird error
+					Iterator<DirectoryEntry> iter = pd.iterator(); 
+					while(iter.hasNext())
+					{
+						//get name
+						//get number
+						//write name and number to file
+						DirectoryEntry next = iter.next();
+						writeFile.println(next.getName() + "," + next.getNumber());
+					}
+					writeFile.close();
 				}//end try
 				catch (IOException e)
 				{
