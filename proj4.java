@@ -5,7 +5,7 @@ import java.io.*;
 
 public class proj4
 {
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args) 
 	{
 		//declare varaibles
 		Scanner sc = new Scanner(System.in);
@@ -14,11 +14,11 @@ public class proj4
 		PrintWriter writeFile;
 		String name = "";
 
+		System.out.println("Welcome to Cassidy and Madeleine's *Directory Program*\n"); 
 		//do while for rerun
 		do
 		{
 		//display menu
-		System.out.println("Welcome to Cassidy and Madeleine's *Directory Program*\n"); 
 		System.out.println("Please enter a number 1-7 \n");
 		System.out.println("1. Load a previously saved phone directory from file");
 		System.out.println("2. Add or change an entry");
@@ -54,6 +54,7 @@ public class proj4
 				{
 					String[] lineList = line.split(",");
 					pd.addOrChangeEntry(lineList[0],lineList[1]);
+					line = br.readLine();
 				}
 				System.out.println("File added");
 			}
@@ -68,7 +69,7 @@ public class proj4
 				//get user input
 				System.out.print("\nEnter the name for the entry: ");
 				name = sc.nextLine();
-				System.out.print("\nEnter the number for the entry: ");
+				System.out.print("Enter the number for the entry: ");
 				String number = sc.nextLine();
 
 				//use method from Phone Directory
@@ -87,7 +88,7 @@ public class proj4
 				if(entry==null)
 					System.out.println("\nEntry not found");
 				else
-					System.out.println("\n"+entry+"\thas been removed");
+					System.out.println("\n"+entry+"\nhas been removed");
 				break;
 			case 4:
 				//search for an entry
@@ -112,9 +113,9 @@ public class proj4
 				try
 				{
 					//get user input
-					System.out.println("\nPlease enter the file name:");
+					System.out.print("\nPlease enter the file name: ");
 					String filename = sc.nextLine();
-					System.out.println("\nWould you like to replace (r) or append (a)?");
+					System.out.print("Would you like to replace (r) or append (a)? ");
 					String choice = sc.nextLine();
 					
 					while(!choice.equalsIgnoreCase("r") && !choice.equalsIgnoreCase("w"))
@@ -141,12 +142,13 @@ public class proj4
 				break;
 			default:
 				//quit
+				System.out.println("\nGoodbye :)");
 				System.exit(0);
 		}
 
 	
 		//user input for rerun
-		System.out.println("\nWould you like to run again?(y for yes, n for no)");
+		System.out.print("\nWould you like to see the menu again?(y for yes, n for no): ");
 		String choice = sc.nextLine();
 
 		while(!choice.equalsIgnoreCase("y") && !choice.equalsIgnoreCase("n"))
@@ -160,5 +162,6 @@ public class proj4
 			rerun = false;
 		}
 		while(rerun);
+		System.out.println("\nGoodbye :)");
 	}
 }
