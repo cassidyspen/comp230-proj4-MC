@@ -13,6 +13,7 @@ public class proj4
 		PhoneDirectory pd = new PhoneDirectory();
 		PrintWriter writeFile;
 		String name = "";
+		String number = "";
 
 		System.out.println("Welcome to Cassidy and Madeleine's *Directory Program*\n"); 
 		//do while for rerun
@@ -52,8 +53,13 @@ public class proj4
 				String line = br.readLine();
 				while(line != null)
 				{
-					String[] lineList = line.split(",");
-					pd.addOrChangeEntry(lineList[0],lineList[1]);
+					if(count%3 == 0)
+                         name = line;
+                    else if(count%3 == 1)
+                         number = line;
+					else
+						pd.addOrChangeEntry(name, number);
+					count++;	
 					line = br.readLine();
 				}
 				System.out.println("File added");
@@ -130,7 +136,7 @@ public class proj4
 						writeFile = new PrintWriter(new FileOutputStream(filename, true));
 					
 					//use toString method to get entries
-					writeFile.print(pd.toString());
+					writeFile.print(pd);
 					writeFile.close();
 
 				}//end try
