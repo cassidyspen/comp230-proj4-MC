@@ -1,0 +1,139 @@
+Script started on 2022-04-20 21:54:32-07:00
+]0;cassidyspencer@bec307dl07:~/comp230/proj4/comp230-proj4-MC[38;5;39mcassidyspencer(B[m[38;5;15m@(B[m[38;5;136mbec307dl07(B[m[38;5;15m (B[m[38;5;2mcomp230-proj4-MC(B[m[38;5;15m>(B[m java proj4
+Welcome to Cassidy and Madeleine's *Directory Program*
+
+Please enter a number 1-7 
+
+1. Load a previously saved phone directory from file
+2. Add or change an entry
+3. Remove an entry
+4. Search for an entry
+5. Display all entries
+6. Save the current phone directory to a file
+7. Quit the program
+1
+
+Please enter the file name:
+directory.txt
+File added
+
+Would you like to see the menu again?(y for yes, n for no): y
+Please enter a number 1-7 
+
+1. Load a previously saved phone directory from file
+2. Add or change an entry
+3. Remove an entry
+4. Search for an entry
+5. Display all entries
+6. Save the current phone directory to a file
+7. Quit the program
+5
+
+Current Phone Directory:
+
+Bob Ross
+1800999999
+
+
+Would you like to see the menu again?(y for yes, n for no): 2 y
+Please enter a number 1-7 
+
+1. Load a previously saved phone directory from file
+2. Add or change an entry
+3. Remove an entry
+4. Search for an entry
+5. Display all entries
+6. Save the current phone directory to a file
+7. Quit the program
+2
+
+Enter the name for the entry: Jane
+Enter the number for the entry: Doe   2222222222
+
+Would you like to see the menu again?(y for yes, n for no): y
+Please enter a number 1-7 
+
+1. Load a previously saved phone directory from file
+2. Add or change an entry
+3. Remove an entry
+4. Search for an entry
+5. Display all entries
+6. Save the current phone directory to a file
+7. Quit the program
+5
+
+Current Phone Directory:
+
+Bob Ross
+1800999999
+
+Jane
+2222222222
+
+
+Would you like to see the menu again?(y for yes, n for no): y
+Please enter a number 1-7 
+
+1. Load a previously saved phone directory from file
+2. Add or change an entry
+3. Remove an entry
+4. Search for an entry
+5. Display all entries
+6. Save the current phone directory to a file
+7. Quit the program
+3
+
+Enter the name to be removed: Bob Ross
+
+Bob Ross
+1800999999
+
+has been removed
+
+Would you like to see the menu again?(y for yes, n for no): y
+Please enter a number 1-7 
+
+1. Load a previously saved phone directory from file
+2. Add or change an entry
+3. Remove an entry
+4. Search for an entry
+5. Display all entries
+6. Save the current phone directory to a file
+7. Quit the program
+2
+
+Enter the name for the entry: Jab ne
+Enter the number for the entry: 1800000000
+
+Would you like to see the menu again?(y for yes, n for no): y
+Please enter a number 1-7 
+
+1. Load a previously saved phone directory from file
+2. Add or change an entry
+3. Remove an entry
+4. Search for an entry
+5. Display all entries
+6. Save the current phone directory to a file
+7. Quit the program
+6
+
+Please enter the file name: directory.txt
+Would you like to replace (r) or append (a)? a
+
+Would you like to see the menu again?(y for yes, n for no): n
+
+Goodbye :)
+]0;cassidyspencer@bec307dl07:~/comp230/proj4/comp230-proj4-MC[38;5;39mcassidyspencer(B[m[38;5;15m@(B[m[38;5;136mbec307dl07(B[m[38;5;15m (B[m[38;5;2mcomp230-proj4-MC(B[m[38;5;15m>(B[m cat directory.txt
+Bob Ross
+1800999999
+
+Jane
+1800000000
+
+]0;cassidyspencer@bec307dl07:~/comp230/proj4/comp230-proj4-MC[38;5;39mcassidyspencer(B[m[38;5;15m@(B[m[38;5;136mbec307dl07(B[m[38;5;15m (B[m[38;5;2mcomp230-proj4-MC(B[m[38;5;15m>(B[m quit
+bash: quit: command not found...
+Similar command is: 'quot'
+]0;cassidyspencer@bec307dl07:~/comp230/proj4/comp230-proj4-MC[38;5;39mcassidyspencer(B[m[38;5;15m@(B[m[38;5;136mbec307dl07(B[m[38;5;15m (B[m[38;5;2mcomp230-proj4-MC(B[m[38;5;15m>(B[m exit
+exit
+
+Script done on 2022-04-20 21:58:07-07:00
