@@ -139,7 +139,7 @@ public class proj4
 					System.out.print("Would you like to replace (r) or append (a)? ");
 					String choice = sc.nextLine();
 					
-					while(!choice.equalsIgnoreCase("r") && !choice.equalsIgnoreCase("w"))
+					while(!choice.equalsIgnoreCase("r") && !choice.equalsIgnoreCase("a"))
 					{
 						System.out.println("\nPlease enter r or a");
 						choice = sc.nextLine();
