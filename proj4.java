@@ -1,4 +1,18 @@
-//driver program for prog4
+/* Description: This program maintains a list of names and phone numbers as a
+ * phone directory. We created a PhoneDirectory class which maintains an array
+ * list of DirectoryEntry objects. The DirectoryEntry class has fields and
+ * corresponding accessor/mutator methods for a name and a number. The
+ * PhoneDirectory class has methods for adding/changing an entry, searching
+ * for an entry, removing an entry, and displaying all entries. The driver
+ * program allows the user to either load a directory from a file or create
+ * their own, to access and change these directories (using methods from
+ * PhoneDirectory), and to save the current directory to a file. 
+ * 
+ * Authors: Cassidy Spencer (cassidyspencer@sandiego.edu) and Madeleine Woo
+ * (madeleinewoo@sandiego.edu)
+ * 
+ * Date: 4/20/22
+ */
 
 import java.util.*;
 import java.io.*;
@@ -128,7 +142,7 @@ public class proj4
 					while(!choice.equalsIgnoreCase("r") && !choice.equalsIgnoreCase("w"))
 					{
 						System.out.println("\nPlease enter r or a");
-						sc.nextLine();
+						choice = sc.nextLine();
 					}
 
 					if(choice.equalsIgnoreCase("r"))
