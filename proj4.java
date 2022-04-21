@@ -9,7 +9,7 @@ public class proj4
 	{
 		//declare varaibles
 		Scanner sc = new Scanner(System.in);
-		Boolean rerun = false; //SHOULD THIS START AS TRUE?  no a do while automatically goes once
+		Boolean rerun = false; 
 		PhoneDirectory pd = new PhoneDirectory();
 		PrintWriter writeFile;
 		String name = "";
@@ -51,6 +51,7 @@ public class proj4
 				//read in lines
 				//COMMENTED OUT pd = new PhoneDirectory();
 				String line = br.readLine();
+				int count = 0;
 				while(line != null)
 				{
 					if(count%3 == 0)
@@ -76,7 +77,7 @@ public class proj4
 				System.out.print("\nEnter the name for the entry: ");
 				name = sc.nextLine();
 				System.out.print("Enter the number for the entry: ");
-				String number = sc.nextLine();
+				number = sc.nextLine();
 
 				//use method from Phone Directory
 				pd.addOrChangeEntry(name,number);
@@ -108,7 +109,7 @@ public class proj4
 				if(entry2==null)
 					System.out.println("\nEntry not found");
 				else
-					System.out.println("\nEntry found:\n\t"+entry2.toString());
+					System.out.println("\nEntry found:\n"+entry2.toString());
 				break;
 			case 5:
 				//display all entries
@@ -136,7 +137,7 @@ public class proj4
 						writeFile = new PrintWriter(new FileOutputStream(filename, true));
 					
 					//use toString method to get entries
-					writeFile.print(pd);
+					writeFile.print(pd.toString());
 					writeFile.close();
 
 				}//end try

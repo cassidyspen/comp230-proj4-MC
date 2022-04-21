@@ -43,6 +43,6 @@ public class DirectoryEntry
 	//toString
 	public String toString()
 	{
-		return "Name: "+name+"\nNumber: "+number+"\n";
+		return name + "\n" + number + "\n";
 	}
 }
